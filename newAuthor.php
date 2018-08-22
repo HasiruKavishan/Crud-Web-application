@@ -6,6 +6,15 @@
  * Time: 10:31 AM
  */
 include 'config.php';
+if (isset($_GET['edit'])){
+    $id=$_GET['edit'];
+    $edit_status=true;
+    $rec= mysqli_query($db,"SELECT * FROM book_author WHERE id=$id");
+    $record = mysqli_fetch_assoc($rec);
+    $title=$record['title'];
+    $name=$record['name'];
+    $id=$record['id'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,27 +43,27 @@ include 'config.php';
     <div class="row justify-content-center">
         <div class="col-md-8 order-md-1">
             <form method="post" action="config.php">
+                <input type="hidden" name="id" value="<?php echo $id;?>">
                 <div class="mb-3">
                     <label class="form-control-label">Book Title</label>
-                    <input class="form-control" name="title" type="text">
+                    <input class="form-control" name="title" type="text" value="<?php echo $title;?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-control-label">Author</label>
-                    <input class="form-control" name="name" type="text" >
+                    <input class="form-control" name="name" type="text" value="<?php echo $name;?>">
                 </div>
                 <div class="mb-3">
-                    <button type="submit" name="save" class="btn btn-primary">Save New book</button>
+                    <?php if ($edit_status==false):?>
+                        <button  type="submit" name="save" class="btn btn-primary">Save New Note</button>
+                    <?php else:?>
+                        <button  type="submit" name="update" class="btn btn-primary">Update</button>
+                    <?php endif;?>
                     <a href="index.php" class="btn btn-primary">Back</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script>
-    $('.datepicker').datepicker({
-        autoclose: "true"
-    });
-</script>
 </body>
 </html>
 

@@ -48,8 +48,8 @@ include 'config.php';
                     <td><?php echo $row['title'];?></td>
                     <td><?php echo $row['name'];?></td>
                     <td>
-                        <a href="#" class="btn btn-success btn-sm mr-1">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="newAuthor.php?edit=<?php echo $row['id'];?>" class="btn btn-success btn-sm mr-1">Edit</a>
+                        <a href="config.php?delete=<?php echo $row['id']?>" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 <?php }?>

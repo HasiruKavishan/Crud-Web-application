@@ -10,6 +10,7 @@
     $title='';
     $name='';
     $id=0;
+$edit_status= false;
     //create the database connection
     $db = mysqli_connect('localhost','root','','author');
 
@@ -27,5 +28,22 @@
     //get data from database
     $getData = "SELECT * FROM book_author";
     $result= mysqli_query($db,$getData);
+
+    //update Record
+    if(isset($_POST['update'])){
+        $title = mysqli_real_escape_string($db,$_POST['title']);
+        $name = mysqli_real_escape_string($db,$_POST['name']);
+        $id = mysqli_real_escape_string($db,$_POST['id']);
+//        $updateRecord="UPDATE book_author set title='$title', name='$name' WHERE id='$id'";
+        mysqli_query($db,"UPDATE book_author set title='$title', name='$name' WHERE id='$id'");
+        header('location:index.php');
+
+    }
+
+if (isset($_GET['delete'])){
+    $id=$_GET['delete'];
+    mysqli_query($db,"DELETE From book_author WHERE id=$id");
+    header('location: index.php');
+}
 
 ?>
