@@ -5,6 +5,7 @@
  * Date: 8/22/2018
  * Time: 10:30 AM
  */
+include 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +41,18 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php
+                    while ($row = mysqli_fetch_assoc($result)){
+                ?>
                 <tr>
-                    <td>Meeting with saara</td>
-                    <td>meeeitng with saars description goes here</td>
-                    <td><button type="button" class="btn btn-success btn-sm mr-1">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                    <td><?php echo $row['title'];?></td>
+                    <td><?php echo $row['name'];?></td>
+                    <td>
+                        <a href="#" class="btn btn-success btn-sm mr-1">Edit</a>
+                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
                 </tr>
+                <?php }?>
                 </tbody>
             </table>
         </div>

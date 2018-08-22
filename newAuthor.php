@@ -44,6 +44,7 @@ include 'config.php';
                 </div>
                 <div class="mb-3">
                     <button type="submit" name="save" class="btn btn-primary">Save New book</button>
+                    <a href="index.php" class="btn btn-primary">Back</a>
                 </div>
             </form>
         </div>
