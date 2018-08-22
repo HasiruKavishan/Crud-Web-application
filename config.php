@@ -46,7 +46,7 @@ if (isset($_GET['delete'])){
     $id=$_GET['delete'];
     mysqli_query($db,"DELETE From book_author WHERE id=$id");
     $_SESSION['msg']="Successfully Deleted";
-    header('location: newAuthor.php');
+    header('location: index.php');
 
 }
 
