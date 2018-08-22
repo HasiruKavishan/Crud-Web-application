@@ -31,9 +31,28 @@ if (isset($_GET['edit'])){
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-
+    <style>
+        .msg{
+            margin: 30px auto;
+            padding: 10px;
+            border-radius: 5px;
+            color: #3c763d;
+            background: #dff0d8;
+            border: 1px solid #3c763d;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+<?php if(isset($_SESSION['msg'])):?>
+    <div class="msg">
+        <?php
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+        ?>
+    </div>
+<?php endif;?>
 <div class="container">
     <div class="py-5 text-center">
         <h2>Create New Book Here</h2>

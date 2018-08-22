@@ -21,8 +21,9 @@ $edit_status= false;
 
         $query="INSERT INTO book_author (title, name) VALUES ('$title','$name')";
         mysqli_query($db,$query);
-        header('location:newAuthor.php');//after inserting data to redirect page
         $_SESSION['msg']="New author added";
+        header('location:newAuthor.php');//after inserting data to redirect page
+
     }
 
     //get data from database
@@ -36,14 +37,17 @@ $edit_status= false;
         $id = mysqli_real_escape_string($db,$_POST['id']);
 //        $updateRecord="UPDATE book_author set title='$title', name='$name' WHERE id='$id'";
         mysqli_query($db,"UPDATE book_author set title='$title', name='$name' WHERE id='$id'");
-        header('location:index.php');
+        $_SESSION['msg']="Successfully updated";
+        header('location:newAuthor.php');
 
     }
 
 if (isset($_GET['delete'])){
     $id=$_GET['delete'];
     mysqli_query($db,"DELETE From book_author WHERE id=$id");
-    header('location: index.php');
+    $_SESSION['msg']="Successfully Deleted";
+    header('location: newAuthor.php');
+
 }
 
 ?>
