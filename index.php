@@ -51,7 +51,7 @@
     </div>
     <div class="row text-right">
         <div class="col-md-10">
-            <button type="button" class="btn btn-primary">Add New Note</button>
+            <a href="newAuthor.php" class="btn btn-primary">Add New Note</a>
         </div>
     </div>
 

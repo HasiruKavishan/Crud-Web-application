@@ -5,6 +5,7 @@
  * Date: 8/22/2018
  * Time: 10:31 AM
  */
+include 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -32,17 +33,17 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8 order-md-1">
-            <form>
+            <form method="post" action="config.php">
                 <div class="mb-3">
                     <label class="form-control-label">Book Title</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" name="title" type="text">
                 </div>
                 <div class="mb-3">
                     <label class="form-control-label">Author</label>
-                    <input class="form-control datepicker" type="text" >
+                    <input class="form-control" name="name" type="text" >
                 </div>
                 <div class="mb-3">
-                    <button type="button" class="btn btn-primary">Save New Note</button>
+                    <button type="submit" name="save" class="btn btn-primary">Save New book</button>
                 </div>
             </form>
         </div>
